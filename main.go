@@ -12,7 +12,7 @@ type information struct {
 	Version string `json:"version"`
 }
 
-type listFiles struct {
+type listFilesPayload struct {
 	Name string `json:"name"`
 	File string `json:"file"`
 }
@@ -56,7 +56,7 @@ func handleListFiles(writer http.ResponseWriter, request *http.Request) {
 			return
 		}
 
-		var payload listFiles
+		var payload listFilesPayload
 		err = json.Unmarshal(body, &payload)
 
 		if err != nil {
@@ -64,14 +64,27 @@ func handleListFiles(writer http.ResponseWriter, request *http.Request) {
 			return
 		}
 
-		resp, err := json.Marshal(payload)
-
+		err = createFile(payload.Name, payload.File)
 		if err != nil {
 			sendError(writer, err)
 			return
 		}
 
-		err = createFile(payload.Name, payload.File)
+		// zippedFiles, err := listFiles(payload.Name)
+		// if err != nil {
+		// 	sendError(writer, err)
+		// 	return
+		// }
+
+		// resp, err := json.Marshal(zippedFiles)
+
+		// if err != nil {
+		// 	sendError(writer, err)
+		// 	return
+		// }
+
+		resp, err := json.Marshal(payload)
+
 		if err != nil {
 			sendError(writer, err)
 			return
