@@ -15,7 +15,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:6050/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6050",
+					"path": [
+						""
+					]
 				}
 			},
 			"response": []
@@ -23,14 +31,35 @@
 		{
 			"name": "List Files",
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n\t\"name\": \"test-url.zip\",\n\t\"file\": \"UEsDBAoAAAAAAHqfS04AAAAAAAAAAAAAAAAJABAAdGVzdC1kaXIvVVgMAN02YlyoNmJc9QEUAFBLAwQKAAAAAAAHoEtOAAAAAAAAAAAAAAAAFgAQAHRlc3QtZGlyL3Rlc3QtZGlyLW9uZS9VWAwA3TZiXL02Ylz1ARQAUEsDBBQACAAIAASgS04AAAAAAAAAAAAAAAAfABAAdGVzdC1kaXIvdGVzdC1kaXItb25lL3Rlc3QyLnR4dFVYDAC3NmJctzZiXPUBFAArzs9NVShJrShRSMvMSVUwAgBQSwcIUGOwwRIAAAAQAAAAUEsDBBQACAAIAAqgS04AAAAAAAAAAAAAAAAfABAAdGVzdC1kaXIvdGVzdC1kaXItb25lL3Rlc3QzLnR4dFVYDADENmJcxDZiXPUBFAArzs9NVShJrShRSMvMSVUwBgBQSwcIxlO3thIAAAAQAAAAUEsDBBQACAAIAHSfS04AAAAAAAAAAAAAAAASABAAdGVzdC1kaXIvdGVzdDEudHh0VVgMAJw2YlycNmJc9QEUACvOz01VKEmtKFFIy8xJBQBQSwcI659/oBAAAAAOAAAAUEsBAhUDCgAAAAAAep9LTgAAAAAAAAAAAAAAAAkADAAAAAAAAAAAQO1BAAAAAHRlc3QtZGlyL1VYCADdNmJcqDZiXFBLAQIVAwoAAAAAAAegS04AAAAAAAAAAAAAAAAWAAwAAAAAAAAAAEDtQTcAAAB0ZXN0LWRpci90ZXN0LWRpci1vbmUvVVgIAN02Yly9NmJcUEsBAhUDFAAIAAgABKBLTlBjsMESAAAAEAAAAB8ADAAAAAAAAAAAQKSBewAAAHRlc3QtZGlyL3Rlc3QtZGlyLW9uZS90ZXN0Mi50eHRVWAgAtzZiXLc2YlxQSwECFQMUAAgACAAKoEtOxlO3thIAAAAQAAAAHwAMAAAAAAAAAABApIHqAAAAdGVzdC1kaXIvdGVzdC1kaXItb25lL3Rlc3QzLnR4dFVYCADENmJcxDZiXFBLAQIVAxQACAAIAHSfS07rn3+gEAAAAA4AAAASAAwAAAAAAAAAAECkgVkBAAB0ZXN0LWRpci90ZXN0MS50eHRVWAgAnDZiXJw2YlxQSwUGAAAAAAUABQCRAQAAuQEAAAAA\"\n}"
 				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:6050/listFiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6050",
+					"path": [
+						"listFiles"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
 				}
 			},
 			"response": []
