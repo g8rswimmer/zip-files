@@ -70,27 +70,15 @@ func handleListFiles(writer http.ResponseWriter, request *http.Request) {
 			return
 		}
 
-		// zippedFiles, err := listFiles(payload.Name)
-		// if err != nil {
-		// 	sendError(writer, err)
-		// 	return
-		// }
+		defer deleteFile(payload.Name)
 
-		// resp, err := json.Marshal(zippedFiles)
-
-		// if err != nil {
-		// 	sendError(writer, err)
-		// 	return
-		// }
-
-		resp, err := json.Marshal(payload)
-
+		zippedFiles, err := listFiles(payload.Name)
 		if err != nil {
 			sendError(writer, err)
 			return
 		}
 
-		_, err = writer.Write(resp)
+		resp, err := json.Marshal(zippedFiles)
 
 		if err != nil {
 			sendError(writer, err)
@@ -98,6 +86,13 @@ func handleListFiles(writer http.ResponseWriter, request *http.Request) {
 		}
 
 		writer.Header().Set("Content-Type", "application/json")
+		_, err = writer.Write(resp)
+
+		if err != nil {
+			sendError(writer, err)
+			return
+		}
+
 		return
 	default:
 		writer.WriteHeader(http.StatusMethodNotAllowed)
